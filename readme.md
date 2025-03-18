@@ -1,4 +1,4 @@
-# Repositorio Ingenieria en Software
+# Repositorio Ingeniería en Software
 
 * Candela Castillo
 * Antonio Santiago Tepsich
