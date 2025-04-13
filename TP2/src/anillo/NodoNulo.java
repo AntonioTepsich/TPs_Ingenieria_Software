@@ -1,8 +1,14 @@
 package anillo;
 
-public class NodoVacio extends Nodo {
-    public Nodo add(Object cargo) {
-        return new NodoSolo(cargo);
+public class NodoNulo extends Nodo {
+    private static final NodoNulo INSTANCE = new NodoNulo();
+
+    public static NodoNulo getInstance() {
+        return INSTANCE;
+    }
+
+    public Nodo add(Nodo nuevoNodo) {
+        return nuevoNodo;
     }
 
     public Nodo remove() {

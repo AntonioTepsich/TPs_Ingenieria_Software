@@ -1,29 +1,30 @@
 package anillo;
 
 public class Ring {
-    private Nodo nodo;
+    private Nodo current;
 
     public Ring() {
-        nodo = new NodoVacio();
-    }
-
-    public Ring next() {
-        nodo = nodo.next();
-        return this;
-    }
-
-    public Object current() {
-        return nodo.current();
+        current = NodoNulo.getInstance();
     }
 
     public Ring add(Object cargo) {
-        nodo = nodo.add(cargo);
+        Nodo nuevo = new NodoCargado(cargo);
+        current = current.add(nuevo);
+        return this;
+    }
+
+    public Ring next() {
+        current = current.next();
         return this;
     }
 
     public Ring remove() {
-        nodo = nodo.remove();
+        current = current.remove();
         return this;
+    }
+
+    public Object current() {
+        return current.current();
     }
 }
 

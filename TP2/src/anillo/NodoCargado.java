@@ -3,34 +3,34 @@ package anillo;
 public class NodoCargado extends Nodo {
     private Object cargo;
     private Nodo next;
+    private Nodo prev;
 
     public NodoCargado(Object cargo) {
         this.cargo = cargo;
+
+        next = this;
+        prev = this;
     }
 
-    public void setNext(Nodo next) {
-        this.next = next;
-    }
-
-    public Nodo add(Object nuevoCargo) {
-        NodoCargado nuevoNodo = new NodoCargado(nuevoCargo);
-        nuevoNodo.setNext(this.next);
-        this.next = nuevoNodo;
-        // Intercambiamos los cargos
-        Object temp = this.cargo;
-        this.cargo = nuevoCargo;
-        nuevoNodo.cargo = temp;
-        return this;
+    public Nodo add(Nodo nuevoNodo) {
+        NodoCargado nuevo = (NodoCargado) nuevoNodo;
+        nuevo.next = this;
+        nuevo.prev = prev;
+        ((NodoCargado) prev).next = nuevo;
+        prev = nuevo;
+        return nuevo;
     }
 
     public Nodo remove() {
-        NodoCargado anterior = this;
-        while (anterior.next != this) {
-            anterior = (NodoCargado) anterior.next;
-        }
-        anterior.next = this.next;
 
-        return this.next;
+        // este if no lo pude sacar pero hablando con Julio nos dio a entender que este if podia ir.
+        if (next == this) {
+            return NodoNulo.getInstance();
+        }
+
+        ((NodoCargado) prev).next = next;
+        ((NodoCargado) next).prev = prev;
+        return next;
     }
 
     public Nodo next() {
@@ -41,3 +41,5 @@ public class NodoCargado extends Nodo {
         return cargo;
     }
 }
+
+
