@@ -1,14 +1,14 @@
 package anillo;
 
 public class Ring {
-    private Nodo current;
+    private Link current;
 
     public Ring() {
-        current = NodoNulo.getInstance();
+        current = NullLink.getInstance();
     }
 
     public Ring add(Object cargo) {
-        Nodo nuevo = new NodoCargado(cargo);
+        Link nuevo = new RealLink(cargo);
         current = current.add(nuevo);
         return this;
     }
