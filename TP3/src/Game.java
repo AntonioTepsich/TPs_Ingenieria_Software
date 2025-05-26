@@ -99,7 +99,5 @@ public class Game {
         }
     }
 
-    public Player currentPlayer() { return currentPlayer; }
-
     Deque<Card> getDeck() { return deck; }
 }
