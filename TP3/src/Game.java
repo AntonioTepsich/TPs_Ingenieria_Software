@@ -16,9 +16,8 @@ public class Game {
                 .map(name -> new Player(name, this))
                 .collect(Collectors.toCollection(ArrayList::new));
 
-        if (deck.isEmpty()) throw new EmptyDeckException("Empty deck");
+        if (deck.isEmpty()) throw new RuntimeException("Empty deck");
         top = deck.poll();
-
         setupCircle(handSize);
     }
 

@@ -19,9 +19,8 @@ public class Player {
     public List<Card> hand() { return Collections.unmodifiableList(hand); }
 
     public void draw(int n) {
-        if (game.deckSize() < n) throw new EmptyDeckException();
-        IntStream.range(0, n)
-                .forEach(i -> hand.add(game.getDeck().poll()));
+        if (game.deckSize() < n) throw new RuntimeException("Not enough cards to draw");
+        IntStream.range(0, n).forEach(i -> hand.add(game.getDeck().poll()));
     }
 
     public void play(Card c) {
