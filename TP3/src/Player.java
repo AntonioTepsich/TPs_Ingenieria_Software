@@ -24,7 +24,6 @@ public class Player {
                 .forEach(i -> hand.add(game.getDeck().poll()));
     }
 
-
     public void play(Card c) {
         if (!hand.contains(c)) throw new RuntimeException("Card not in hand");
 
