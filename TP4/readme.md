@@ -12,8 +12,6 @@ Ej: curl -X POST "http://localhost:8080/newmatch?players=A&players=B" \
 
 -H "Accept: application/json"r
 
-responde un uuid con la sesión asociada al juego creado
-
 - POST /play/{matchId}/{player} y la representación json de la carta a jugar
 
 Ej: curl -X POST "http://localhost:8080/play/6951e08e-3594-49ec-95a3-056382cea112/A" \
@@ -26,15 +24,11 @@ Ej: curl -X POST "http://localhost:8080/play/6951e08e-3594-49ec-95a3-056382cea11
 
 -H "Accept: application/json"
 
-responde una representación json de la carta a la vista
-
 - GET /playerhand/{matchId}
 
 Ej: curl -X GET "http://localhost:8080/playerhand/6951e08e-3594-49ec-95a3-056382cea112" \
 
 -H "Accept: application/json"
-
-responde una representación json de la lista de cartas en la mano del jugador en turno
 
 Los endpoints correspondientes Java Spring son:
 
